@@ -1,0 +1,25 @@
+{
+  "configurations": {
+    "Launch": {
+      "adapter": "debugpy",
+      "configuration": {
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "stopOnEntry": true,
+        "externalConsole": false,
+        "console": "integratedTerminal",
+        "python": "./.vimspector.sh",
+        "program": "${file}",
+        "justMyCode": false,
+        "args": ["configs/pascal_voc/ssd300_voc0712.py", "--gpus", "1", "--work-dir", "experiment/ssd300_voc_debug"]
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "",
+          "uncaught": "Y"
+        }
+      }
+    }
+  }
+}

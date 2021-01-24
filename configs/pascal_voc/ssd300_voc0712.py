@@ -48,8 +48,12 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
-    workers_per_gpu=3,
+    samples_per_gpu=1,
+    # 0 表示使用 _SingleProcessDataLoaderIter
+    # >= 1 表示使用 _MultiProcessingDataLoaderIter
+    # 大于等于2，data_loader多进程部分不能设置断点（不过之前记得是
+    # vimspector会报错的）
+    workers_per_gpu=0,
     train=dict(
         type='RepeatDataset', times=10, dataset=dict(pipeline=train_pipeline)),
     val=dict(pipeline=test_pipeline),
